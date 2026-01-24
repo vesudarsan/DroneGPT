@@ -1,0 +1,25 @@
+services:
+  ai_agent:
+    build:
+      context: .
+      dockerfile: /agent/Dockerfile
+    image: vesudarsan/agent:1.0.0
+    container_name: ai-agent-service
+      
+    ports:
+      - "8001:8001" 
+
+
+  # mavsdk:
+  #   build:
+  #     context: ./mavsdk_docker
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "50051:50051"  
+  #     - "14540:14540/udp"   
+  #   entrypoint: ["/usr/local/bin/mavsdk_server"]
+  #   command: ["-p", "50051", "udpin://0.0.0.0:14540"]
+  #   # command: ["-p", "50051", "serial:///dev/ttyACM0:115200"]
+  #   restart: always
+  #   container_name: mavsdk-server
+
