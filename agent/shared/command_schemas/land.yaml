@@ -1,0 +1,8 @@
+# Simplified Land Command Schema
+name: land
+description: "Land drone at current position"
+category: basic
+validation_schema:
+  type: object
+  properties: {}
+  required: []

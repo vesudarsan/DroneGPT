@@ -1,0 +1,50 @@
+# Simplified Goto Command Schema
+name: goto
+description: "Navigate to GPS (Global) or NED coordinates (Relavative to PX4 origin)"
+category: navigation
+validation_schema:
+  type: object
+  properties:
+    # GPS mode parameters
+    latitude:
+      type: number
+      minimum: -90.0
+      maximum: 90.0
+      description: "Target latitude in decimal degrees"
+    longitude:
+      type: number
+      minimum: -180.0
+      maximum: 180.0
+      description: "Target longitude in decimal degrees"
+    altitude:
+      type: number
+      minimum: 0.0
+      maximum: 1000.0
+      description: "Target altitude MSL in meters"
+    # NED mode parameters
+    north:
+      type: number
+      minimum: -1000.0
+      maximum: 1000.0
+      description: "North offset from origin in meters"
+    east:
+      type: number
+      minimum: -1000.0
+      maximum: 1000.0
+      description: "East offset from origin in meters"
+    down:
+      type: number
+      minimum: -100.0
+      maximum: 100.0
+      description: "Down offset from origin in meters (negative is up)"
+    # Common parameters
+    speed:
+      type: number
+      minimum: 0.5
+      maximum: 10.0
+      default: 3.0
+      description: "Navigation speed in m/s"
+  required: []
+  oneOf:
+    - required: ["latitude", "longitude", "altitude"]
+    - required: ["north", "east", "down"]

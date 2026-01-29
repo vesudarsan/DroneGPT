@@ -4,8 +4,10 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Copy files
-COPY . /app
+# Copy everything from project root (when building from root)
+COPY agent /app/agent
+COPY agent/shared app/shared
+
 
 # Install dependencies from agent/requirements.txt
 RUN pip install --no-cache-dir -r /app/agent/requirements.txt

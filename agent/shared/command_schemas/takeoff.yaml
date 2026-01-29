@@ -1,0 +1,14 @@
+# Simplified Takeoff Command Schema
+name: takeoff
+description: "Launch drone to specified altitude above ground level"
+category: basic
+validation_schema:
+  type: object
+  properties:
+    altitude:
+      type: number
+      minimum: 1.0
+      maximum: 50.0
+      default: 10.0
+      description: "Target altitude in meters above ground"
+  required: ["altitude"]

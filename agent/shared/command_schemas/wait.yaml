@@ -1,0 +1,18 @@
+# Simplified Wait Command Schema
+name: wait
+description: "Wait for specified duration"
+category: basic
+validation_schema:
+  type: object
+  properties:
+    duration:
+      type: number
+      minimum: 0.1
+      maximum: 300.0
+      default: 1.0
+      description: "Wait duration in seconds"
+    message:
+      type: string
+      maxLength: 100
+      description: "Optional message during wait"
+  required: ["duration"]

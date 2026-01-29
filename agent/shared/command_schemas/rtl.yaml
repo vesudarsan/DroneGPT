@@ -1,0 +1,8 @@
+# Simplified RTL Command Schema
+name: rtl
+description: "Return to launch point and land with default px4 RTL behavior"
+category: basic
+validation_schema:
+  type: object
+  properties: {}
+  required: []
